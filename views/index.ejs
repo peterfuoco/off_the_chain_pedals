@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+        <h1>This is the Guitar Index</h1>
+        <a href="/pedals/new"><button>New Page</button></a>
+        <ul>
+                <% pedals.forEach((pedal, index) => { %>
+                    <h1> <a href="/pedals/<%=index%>"> <%= pedal.Name %> </a>  </h1>
+                    <h2> <%= pedal.Price %> </h2> 
+                    <h3>  <%= pedal.Analog %> </h3>
+                    <a href="/pedals/<%=index%>"> <%= pedals.Name %></a>
+                    <form action="/pedals/<%= index %>?_method=DELETE" method="POST">
+                      <input type="submit" value="Delete Pedal"/>
+                    </form>
+                    <a href="/pedals/<%=index %>/edit">Edit Pedal</a>
+                  </li>
+                <% }) %>
+                </ul>
+</body>
+</html>
+
+
