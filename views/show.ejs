@@ -1,16 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <% include ./partials/head.ejs %>
     <title>Document</title>
 </head>
 <body>
     <h1> this is the show page</h1>
-
-    <nav>
+    <h2>  <%= thisPedal.Name %>   </h2>
+    <h2>  <%= thisPedal.Price %>    </h2>
+    <h2> <%= thisPedal.Analog %>     </h2>
+    <a href="/pedals/<%=thisPedal._id %>/edit">Edit Pedal</a>
         <a href="/pedals">Back to Guitar Pedals Home</a>
-    </nav>
 </body>
 </html>

@@ -1,37 +1,56 @@
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose')
- const methodOverride = require('method-override');
+const methodOverride = require('method-override');
 
  //Middleware
- app.use(express.urlencoded({extended: false}))
+app.use(express.urlencoded({extended: false}))
 const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/pedals'
 const PORT = process.env.PORT || 3000;
+app.use(methodOverride('_method'));
+app.use(express.static('public'));
 
 // app.get('/', (req,res) => res.render ('show.ejs'));
 
-// const Guitarist = require('./models/pedals.js')
-const Guitarist = require('./models/pedals.js')
+const pedalBoard = require('./models/pedals.js');
 
+// INDEX
 app.get('/pedals', (req, res) => {
-        Guitarist.find({}, (error, allPedals) => {
+        pedalBoard.find({}, (error, allPedals) => {
             res.render('index.ejs', {
                 pedals: allPedals
             });
         });
     });
-
+//NEW
     app.get('/pedals/new', (req, res) => {
         res.render('new.ejs')
     })
 
+
+// EDIT 
+
+app.get('/pedals/:id/edit', (req,res)=> {
+    pedalBoard.findById(req.params.id, (err, editPedal)=> {
+        if (err) {
+            console.log('error')
+        } else {
+            console.log(editPedal)
+            res.render('edit.ejs', {
+                editedPedal: editPedal
+            })
+        }
+    })
+})
+
+// CREATE
     app.post('/pedals', (req, res) => {
         if (req.body.Analog === 'on') {
             req.body.Analog = true
         } else {
             req.body.Analog = false
         }
-        Guitarist.create(req.body, (error, createdGuitarist) => {
+        pedalBoard.create(req.body, (error, createdGuitarist) => {
             if (error) {
                 res.send(error)
             } else {
@@ -39,14 +58,47 @@ app.get('/pedals', (req, res) => {
             }
         });
     })
+
 //SHOW
 app.get('/pedals/:id', (req, res) => {
-    const currentPedal = Guitarist[req.params.id]
-    res.render('show.ejs', {
+    pedalBoard.findById(req.params.id, (err, currentPedal)=> {
+        res.render('show.ejs', {
         thisPedal: currentPedal
     })
-}
-)
+})
+});
+
+// UPDATE (SERVER)
+app.put('/pedals/:id', (req, res) => {
+    // if (req.body.readyToEat === 'on') {
+    //     req.body.readyToEat = true;
+    // } else {
+    //     req.body.readyToEat = false;
+    // }
+    // logic to edit fruit using mongoose
+    pedalBoard.findByIdAndUpdate(req.params.id, req.body, { new: true }, (err, updatedPedal) => {
+        if (err) {
+            console.log(err)
+        } else {
+            res.redirect('/pedals');
+        }
+        // res.send(updatedFruit);
+    });
+});
+
+
+
+// DELETE 
+app.delete('/pedals/:id', (req,res) => {
+    pedalBoard.findByIdAndRemove(req.params.id, (err, deletedGuitarist)=> {
+        if (err) {
+            console.log('error')
+        } else {
+            res.redirect('/pedals')
+        }
+    })
+});
+
 
 // have actual info rendering on index. then have show page to go to individual page for pedal.
 // 

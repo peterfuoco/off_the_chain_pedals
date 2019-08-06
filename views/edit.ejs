@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include ./partials/head.ejs %>
+    <title>Document</title>
+</head>
+<body>
+    <h1> Edit Pedal Page</h1>
+    <form action="/pedals/<%=editedPedal._id%>?_method=PUT" method="POST">
+        Name: <input type='text' name='Name' value="<%=editedPedal.Name%>"/>
+        Price: <input type= "Number" name='Price' value='<%=editedPedal.Price%>' />
+        Analog: <input type= 'Boolean' name="Analog" value='<%=editedPedal.Analog%>' />
+        Submit: <input type='Submit' value="Edited Pedal" />
+    </form>
+</body>
+</html>
