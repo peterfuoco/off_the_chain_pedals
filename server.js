@@ -12,7 +12,7 @@ const PORT = process.env.PORT || 3000;
 const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/pedals'
 
 // CONNECT TO DATABASE
-mongoose.connect( mongoURI );
+mongoose.connect( MONGODB_URI );
 
 // SET THE CONNECTION 
 const db = mongoose.connection;
@@ -23,8 +23,9 @@ db.once ( 'open' , function () {
   console.log( 'DB: Connected' );
 });
 
-// PEDAL CONTROLLER
+//  CONTROLLERS
 const pedalsController = require ( './controllers/pedals' );
+const guitaristController = require ( './controllers/guitarists' );
 
 //Middleware
 app.use(express.urlencoded({extended: false}))
@@ -33,7 +34,10 @@ app.use(express.static('public'));
 app.use( bodyParser.json() );
 
 // USE CONTROLLER WHEN /PEDALS VISITED 
-app.use( '/products', productsController );
+app.use("/pedals", pedalsController );
+app.use("/pro_pedals", guitaristController);
+
+
 
 // END
 

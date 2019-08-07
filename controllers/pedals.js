@@ -3,40 +3,39 @@ const express = require('express')
 const router = express.Router()
 
 // MODELS
-const Pedals = require('./../models/pedals')
+const Pedal = require('./../models/pedals')
 
 
 // See JSON Route
 router.get ( '/json' , ( req , res ) => {
-    Pedals.find( ( err, router ) => {
+    Pedal.find( ( err, router ) => {
       res.send ( router );
     });
   });
 
-
 // INDEX
-router.get('/pedals', (req, res) => {
-    pedalBoard.find({}, (error, allPedals) => {
-        res.render('index.ejs', {
+router.get('/', (req, res) => {
+    Pedal.find({}, (error, allPedals) => {
+        res.render('user_pedals/index.ejs', {
             pedals: allPedals
         });
     });
 });
+
 //NEW
-router.get('/pedals/new', (req, res) => {
-    res.render('new.ejs')
+router.get('/new', (req, res) => {
+    res.render('user_pedals/new.ejs')
 })
 
 
 // EDIT 
-
-router.get('/pedals/:id/edit', (req,res)=> {
-pedalBoard.findById(req.params.id, (err, editPedal)=> {
+router.get('/:id/edit', (req,res)=> {
+Pedal.findById(req.params.id, (err, editPedal)=> {
     if (err) {
         console.log('error')
     } else {
         console.log(editPedal)
-        res.render('edit.ejs', {
+        res.render('user_pedals/edit.ejs', {
             editedPedal: editPedal
         })
     }
@@ -44,13 +43,13 @@ pedalBoard.findById(req.params.id, (err, editPedal)=> {
 })
 
 // CREATE
-router.post('/pedals', (req, res) => {
+router.post('/', (req, res) => {
     if (req.body.Analog === 'on') {
         req.body.Analog = true
     } else {
         req.body.Analog = false
     }
-    pedalBoard.create(req.body, (error, createdGuitarist) => {
+    Pedal.create(req.body, (error, createdGuitarist) => {
         if (error) {
             res.send(error)
         } else {
@@ -60,37 +59,30 @@ router.post('/pedals', (req, res) => {
 })
 
 //SHOW
-router.get('/pedals/:id', (req, res) => {
-pedalBoard.findById(req.params.id, (err, currentPedal)=> {
-    res.render('show.ejs', {
+router.get('/:id', (req, res) => {
+Pedal.findById(req.params.id, (err, currentPedal)=> {
+    res.render('user_pedals/show.ejs', {
     thisPedal: currentPedal
 })
 })
 });
 
 // UPDATE (SERVER)
-router.put('/pedals/:id', (req, res) => {
-// if (req.body.readyToEat === 'on') {
-//     req.body.readyToEat = true;
-// } else {
-//     req.body.readyToEat = false;
-// }
-// logic to edit fruit using mongoose
-pedalBoard.findByIdAndUpdate(req.params.id, req.body, { new: true }, (err, updatedPedal) => {
+router.put('/:id', (req, res) => {
+Pedal.findByIdAndUpdate(req.params.id, req.body, { new: true }, (err, updatedPedal) => {
     if (err) {
         console.log(err)
     } else {
         res.redirect('/pedals');
     }
-    // res.send(updatedFruit);
 });
 });
 
 
 
 // DELETE 
-router.delete('/pedals/:id', (req,res) => {
-pedalBoard.findByIdAndRemove(req.params.id, (err, deletedGuitarist)=> {
+router.delete('/:id', (req,res) => {
+Pedal.findByIdAndRemove(req.params.id, (err, deletedGuitarist)=> {
     if (err) {
         console.log('error')
     } else {
