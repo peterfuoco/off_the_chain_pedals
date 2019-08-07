@@ -4,23 +4,30 @@
     <% include ./partials/head.ejs %>
 </head>
 <body>
-        <h1>Guitar Pedal Chain</h1>
-        <a href="/pedals/new"><button>New Page</button></a>
+        <h1>Guitar Pedal </h1>
+  
+<nav class="navbar navbar-dark bg-dark">
+  <a href="/pedals/new"><button class= 'btn btn-primary'>Add a Pedal</button></a>
+  <a href="/pedals/new"><button class= 'btn btn-primary'>Pro Pedal Boards</button></a>
+  <a href="/pedals/new"><button class= 'btn btn-primary'>Pro Pedal Boards</button></a>
+
+</nav>
         <div class= "pedalBoard">
             
                 <% pedals.forEach((pedal, id) => { %>
-                    <div class='container'>
+                    <div class='card'>
                     <h2> <a href="/pedals/<%=pedal._id%>"> <%= pedal.Name %> </a>  </h2>
                     <h2> <%= pedal.Price %> </h2> 
                     <h2>  <%= pedal.Analog %> </h2>
                     <a href="/pedals/<%=id%>"> <%= pedals.Name %></a>
                     <form action="/pedals/<%=pedal._id %>?_method=DELETE" method="POST">
-                      <input type="submit" value="Delete Pedal"/>
+                      <button class="btn btn-danger"> Delete Pedal</button>
                     </form>
                 </div>
                 <% }) %>
         </div>
 </body>
 </html>
+
 
 

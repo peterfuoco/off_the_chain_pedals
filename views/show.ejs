@@ -2,14 +2,17 @@
 <html lang="en">
 <head>
     <% include ./partials/head.ejs %>
+    <link rel="stylesheet" href="/css/show.css">
     <title>Document</title>
 </head>
-<body>
-    <h1> this is the show page</h1>
-    <h2>  <%= thisPedal.Name %>   </h2>
-    <h2>  <%= thisPedal.Price %>    </h2>
-    <h2> <%= thisPedal.Analog %>     </h2>
-    <a href="/pedals/<%=thisPedal._id %>/edit">Edit Pedal</a>
-        <a href="/pedals">Back to Guitar Pedals Home</a>
+<body> 
+    <h1> Show Pedal Page</h1>
+    <div class='card card-for-show'>
+    <h2> Name:  <%= thisPedal.Name %>   </h2>
+    <h2> Price:  <%= thisPedal.Price %>    </h2>
+    <h2> Analog: <%= thisPedal.Analog %>     </h2>
+    <a href="/pedals/<%=thisPedal._id %>/edit"><button class="btn btn-warning">Edit Pedal</button></a>
+        <a href="/pedals"><button class="btn btn-secondary">Back to Home</button> </a>
+    </div>
 </body>
 </html>

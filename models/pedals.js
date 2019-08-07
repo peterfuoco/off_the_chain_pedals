@@ -1,13 +1,13 @@
 const mongoose = require('mongoose');
 
-const guitaristSchema = new mongoose.Schema({
+const pedalSchema = new mongoose.Schema({
     // Type: { type: String, required: true },
     Name:  { type: String, required: true },
     Price:  { type: Number, required: true },
     Analog: Boolean
 });
 
-const pedalBoard = mongoose.model('pedalBoard', guitaristSchema);
+const pedalBoard = mongoose.model('pedalBoard', pedalSchema);
 
 module.exports = pedalBoard;
 

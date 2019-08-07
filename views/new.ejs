@@ -2,18 +2,21 @@
 <html>
     <head>
             <% include ./partials/head.ejs %>
+            <link rel="stylesheet" href="/css/show.css">
         <title></title>
     </head>
     <body>
       <h1>New Pedal Page</h1>
+      <div class='card card-for-show'>
       <form action="/pedals" method="POST">
         <label for="Name">Name</label>
-        <input type="text" name="Name" id="Name"/>
+        <input type="text" name="Name" id="Name"/> </br>
         <label for="Price">Price</label>
-        <input type="text" name="Price" id="Price" />
+        <input type="text" name="Price" id="Price" /> </br>
         <label for="Analog">Analog</label>
         <input type="checkbox" name="Analog" id="Analog" />
         <input type="submit" value="Create Pedal">
       </form>
+    </div>
     </body>
 </html>
