@@ -4,18 +4,18 @@
     <% include ../partials/head.ejs %>
 </head>
 <body>
-        <h1>Guitar Pros </h1>
-  
+        <h1>Famous Guitarist Pedals </h1>
         <nav class="navbar navbar-dark bg-dark">
-          <a href="/pedals"><button class= 'btn btn-primary'>Back to User Pedal Board</button></a> <p>'  '</p>         
+          <a href="/pedals"><button class= 'btn btn-primary'>Back to User Pedal Board</button></a>       
         </nav>
-        <div class='card card-for-show'>
-            <h2> Name:  <%= allGuitarists[0].Name %>   </h2>
-            <h2> Pedals:  <%= allGuitarists[0].Pedals[0].Name %>    </h2>
-            <h2> Image: <%= allGuitarists[0].Image %>     </h2>
-            <a href="/pedals/<%=allGuitarists._id %>/edit"><button class="btn btn-warning">Edit Pedal</button></a>
+        <div class= 'pedalBoard'> 
+        <div class='card'>
+            <h2> <%= allGuitarists[0].Name %>   </h2>
+            <h2> Pedal:  <%= allGuitarists[0].Pedals[0].Name %>    </h2>
                 <a href="/pedals"><button class="btn btn-secondary">Back to Home</button> </a>
             </div>
+            Image: <img src="<%= allGuitarists[0].Image %>">  
+
     </div>
 </body>
 </html>

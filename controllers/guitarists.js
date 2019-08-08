@@ -11,7 +11,8 @@ const seedGuitarist = require('../models/seed')
 //       res.send ( guitarists );
 //     });
 //   });
-  
+
+
 // See JSON Route
 guitarists.get ( '/json' , ( req , res ) => {
     Guitarist.find( ( err, guitarists ) => {
@@ -23,7 +24,6 @@ guitarists.get ( '/json' , ( req , res ) => {
 // INDEX
 guitarists.get('/', (req, res) => {
         Guitarist.find({}, (err, guitarists) => {
-            console.log(guitarists[1].Pedals)
             res.render('pro_pedals/index.ejs', {
                 allGuitarists: guitarists
         });

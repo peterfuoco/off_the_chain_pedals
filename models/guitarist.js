@@ -3,9 +3,12 @@ const mongoose = require('mongoose');
 const guitaristSchema = new mongoose.Schema({
     // Type: { type: String, required: true },
     Name:  { type: String, required: true },
-    Pedals: [{Name:  { type: String, required: true },
+    Pedals: [{
+        Name:  { type: String, required: true },
         Price:  { type: Number, required: true },
-        Analog: Boolean}],
+        Analog: Boolean
+    }
+],
     Image: String
 });
 

@@ -2,13 +2,22 @@ const Guitarists = [
     {   
         Name: 'Jimi Hendrix',
         Pedals: [{ 
-            Name: 'reverb',
-            Price: 141,
+            Name: 'WahWah',
+            Price: 200,
             Analog: true
         }],
-        Image: 'https://cdn.shopify.com/s/files/1/1661/9429/files/jimi_hendrix_custom_boards_grande.jpg'
+        Image: 'HendrixPedal.png'
     },
+    {
+        Name: 'Jimmy Page',
+        Pedals: [{ 
+            Name: 'Phaser',
+            Price: 80,
+            Analog: true
+        }],
+        Image: 'jimmyPage.jpg'
+    }
 ]
 
-module.exports = Guitarists
+module.exports = Guitarists;
 

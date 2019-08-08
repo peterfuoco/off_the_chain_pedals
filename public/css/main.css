@@ -14,10 +14,10 @@
 h1 {
   font-family: 'Century Gothic';
   margin:0;
-  margin-bottom: .5em;
-  padding: 1em;
+  /* margin-bottom: .5em; */
+  padding: .2em;
   text-align: center;
-  font-size: 24px;
+  font-size: 60px;
   color: yellow;
 }
 
@@ -39,6 +39,7 @@ h2 {
   height: 250px;
   justify-content: center;
 }
+
 
 
 .pedalBoard {
