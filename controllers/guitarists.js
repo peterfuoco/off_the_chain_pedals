@@ -24,11 +24,23 @@ guitarists.get ( '/json' , ( req , res ) => {
 // INDEX
 guitarists.get('/', (req, res) => {
         Guitarist.find({}, (err, guitarists) => {
+            console.log(guitarists)
             res.render('pro_pedals/index.ejs', {
                 allGuitarists: guitarists
         });
         });
 });
+
+//SHOW
+guitarists.get('/:id', (req, res) => {
+    Guitarist.findById(req.params.id, (err, currentPedal)=> {
+        console.log(currentPedal)
+        console.log('heyo')
+        res.render('pro_pedals/show.ejs', {
+        Show: currentPedal.Show
+    })
+    })
+    });
 
 // SEED
 guitarists.get( '/seed/Guitarists' , ( req, res ) => {

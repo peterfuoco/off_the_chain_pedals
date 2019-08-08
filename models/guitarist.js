@@ -9,7 +9,8 @@ const guitaristSchema = new mongoose.Schema({
         Analog: Boolean
     }
 ],
-    Image: String
+    Image: String,
+    Show: String
 });
 
 const guitarist = mongoose.model('guitarist', guitaristSchema);
