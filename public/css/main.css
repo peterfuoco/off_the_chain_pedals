@@ -74,7 +74,14 @@ h2 {
   align-content: center;
 }
 
-
+.onePedal > img {
+  height: 500px;
+  margin: auto;
+  justify-content: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
 
 .navbar {
   justify-content: center;
