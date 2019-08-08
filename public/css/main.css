@@ -34,13 +34,11 @@ h2 {
   background-size: 100%;
   background-color: rgba(11, 11, 11, 0.8);
   background-blend-mode: darken;
-  margin: 10px;
+  margin: 20px;
   width: 250px;
   height: 250px;
   justify-content: center;
 }
-
-
 
 .pedalBoard {
   /* justify-content: flex-start; */
@@ -53,14 +51,38 @@ h2 {
   flex-wrap: wrap;
   font-family: 'Righteous';
   justify-content: center;
-
-
 }
+
+.guitaristCard {
+  /* justify-content: flex-start; */
+  -webkit-flex-direction: row; 
+  /* flex-direction: row; */
+  /* flex-wrap: nowrap; */
+  /* flex-basis: auto; */
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  font-family: 'Righteous';
+  /* justify-content: left; */
+  height: 300px;
+  margin: auto;
+}
+
+.guitaristBoard {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+}
+
 
 
 .navbar {
   justify-content: center;
   margin: 10px;
+}
+
+.pics > img {
+  height: 248px;
 }
 /* h1 {
   font-family: 'Righteous', cursive;

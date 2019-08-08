@@ -4,18 +4,22 @@
     <% include ../partials/head.ejs %>
 </head>
 <body>
-        <h1>Famous Guitarist Pedals </h1>
+        <h1>Famous Guitarist's Pedals </h1>
         <nav class="navbar navbar-dark bg-dark">
           <a href="/pedals"><button class= 'btn btn-primary'>Back to User Pedal Board</button></a>       
         </nav>
-        <div class= 'pedalBoard'> 
-        <div class='card'>
-            <h2> <%= allGuitarists[0].Name %>   </h2>
-            <h2> Pedal:  <%= allGuitarists[0].Pedals[0].Name %>    </h2>
-                <a href="/pedals"><button class="btn btn-secondary">Back to Home</button> </a>
+        <div class="container guitaristBoard"> 
+         <% for (i=0; i<allGuitarists.length; i++){ %>
+            <div class= 'guitaristCard'>
+                <div class='card'>
+                    <h2> <%= allGuitarists[i].Name %>   </h2>
+                    <h2> Pedal:  <%= allGuitarists[i].Pedals[0].Name %>    </h2>
+                </div>
+                <div class='pics'> 
+                    <img src="<%= allGuitarists[i].Image %>">  
+                </div>
             </div>
-            Image: <img src="<%= allGuitarists[0].Image %>">  
-
-    </div>
+    <% } %>
+</div>
 </body>
 </html>

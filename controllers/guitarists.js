@@ -37,8 +37,7 @@ guitarists.get( '/seed/Guitarists' , ( req, res ) => {
             console.log( "SEED: NEW Guitarists CREATED!" );
             res.redirect( '/pedals' );
       });
-})
-
+});
 
 
 module.exports = guitarists;

@@ -6,7 +6,7 @@ const Guitarists = [
             Price: 200,
             Analog: true
         }],
-        Image: 'HendrixPedal.png'
+        Image: '/hendrix.png'
     },
     {
         Name: 'Jimmy Page',
@@ -15,7 +15,7 @@ const Guitarists = [
             Price: 80,
             Analog: true
         }],
-        Image: 'jimmyPage.jpg'
+        Image: '/jimmyPage.jpg'
     }
 ]
 
