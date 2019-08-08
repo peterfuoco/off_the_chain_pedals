@@ -9,5 +9,13 @@
         <nav class="navbar navbar-dark bg-dark">
           <a href="/pedals"><button class= 'btn btn-primary'>Back to User Pedal Board</button></a> <p>'  '</p>         
         </nav>
+        <div class='card card-for-show'>
+            <h2> Name:  <%= allGuitarists[0].Name %>   </h2>
+            <h2> Pedals:  <%= allGuitarists[0].Pedals[0].Name %>    </h2>
+            <h2> Image: <%= allGuitarists[0].Image %>     </h2>
+            <a href="/pedals/<%=allGuitarists._id %>/edit"><button class="btn btn-warning">Edit Pedal</button></a>
+                <a href="/pedals"><button class="btn btn-secondary">Back to Home</button> </a>
+            </div>
+    </div>
 </body>
 </html>

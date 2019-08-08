@@ -4,12 +4,13 @@ const guitarists    = express.Router();
 
 //get access to the Guitarist model
 const Guitarist     = require ( '../models/guitarist' );
+const seedGuitarist = require('../models/seed')
 
-guitarists.get ( '/seed/Guitarists' , ( req , res ) => {
-    Guitarist.find( ( err, guitarists ) => {
-      res.send ( guitarists );
-    });
-  });
+// guitarists.get ( '/seed/Guitarists' , ( req , res ) => {
+//     Guitarist.find( ( err, guitarists ) => {
+//       res.send ( guitarists );
+//     });
+//   });
   
 // See JSON Route
 guitarists.get ( '/json' , ( req , res ) => {
@@ -21,17 +22,22 @@ guitarists.get ( '/json' , ( req , res ) => {
 
 // INDEX
 guitarists.get('/', (req, res) => {
-        res.render('pro_pedals/index.ejs')
+        Guitarist.find({}, (err, guitarists) => {
+            console.log(guitarists[1].Pedals)
+            res.render('pro_pedals/index.ejs', {
+                allGuitarists: guitarists
+        });
+        });
 });
 
-// const guitaristSeeds = require ( '../models/seed.js');
-// guitarists.get ( './models/seed/Guitarists' , ( req, res ) => {
-//   Guitarist.insertMany ( guitaristSeeds, ( err , guitarists ) =>{
-//     if (err) { console.log ( err ); } else {
-//      res.send (guitarists );
-//     }
-//   });
-// });
+// SEED
+guitarists.get( '/seed/Guitarists' , ( req, res ) => {
+	Guitarist.create( seedGuitarist , ( err, guitarist ) => {
+        if ( err ) { console.log( err ); } 
+            console.log( "SEED: NEW Guitarists CREATED!" );
+            res.redirect( '/pedals' );
+      });
+})
 
 
 
