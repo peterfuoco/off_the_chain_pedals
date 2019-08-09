@@ -7,6 +7,8 @@ This project utilizes MVC architecture and js, html, and css in order to dynamic
 
 Next steps include additional styling, dynamically rendering guitar pedal images corresponding to user input (ie a reverb pedal when a user creates one), as well as functionality to inform users when their guitar pedal chain follows protocol.
 #
+Project Link: https://polar-journey-28859.herokuapp.com/pro_pedals/
 images used from Sweetwater Music
+
 
 
