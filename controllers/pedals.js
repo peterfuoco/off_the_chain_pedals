@@ -40,14 +40,14 @@ Pedal.findById(req.params.id, (err, editPedal)=> {
         })
     }
 })
-})
+});
 
 // CREATE
 router.post('/', (req, res) => {
     if (req.body.Analog === 'on') {
-        req.body.Analog = true
+        req.body.Analog = true;
     } else {
-        req.body.Analog = false
+        req.body.Analog = false;
     }
     Pedal.create(req.body, (error, createdGuitarist) => {
         if (error) {

@@ -10,6 +10,14 @@
    background-image: url('../black_neon_electric_guitar_by_mrdoopey_d2tgj6f-pre.jpg')
 
   }
+.diagram > img {
+  height: 225px;
+  text-align: center;
+  margin: 20px;
+  margin-left: 25%;
+  justify-content: center;
+
+}
 
 h1 {
   font-family: 'Century Gothic';
@@ -21,9 +29,19 @@ h1 {
   color: yellow;
 }
 
+iframe {
+  margin-left: 42%;
+
+}
+
 h2 {
   text-align: center;
   color: yellow;
+}
+h5 {
+  text-align: center;
+  color: yellow;
+  font-size: 20px;
 }
 
 .card {
@@ -72,6 +90,7 @@ h2 {
   display: flex;
   flex-direction: column;
   align-content: center;
+  background-color: rgba(red, green, blue, .5)
 }
 
 .onePedal > img {
@@ -90,7 +109,9 @@ h2 {
 
 .pics > img {
   height: 248px;
+  margin-top: 20px;
 }
+
 /* h1 {
   font-family: 'Righteous', cursive;
   background: antiquewhite;

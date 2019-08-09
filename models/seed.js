@@ -2,7 +2,7 @@ const Guitarists = [
     {   
         Name: 'Jimi Hendrix: ',
         Pedals: [{ 
-            Name: 'is famous for using a WahWah pedal',
+            Name: 'is famous for using a Wah pedal',
             Price: 200,
             Analog: true
         }],
@@ -27,7 +27,7 @@ const Guitarists = [
             Analog: true
         }],
         Image: '/carlos.jpg',
-        Show: '/Phaser.jpg'
+        Show: '/bigmuff.jpg'
     }
 ]
 

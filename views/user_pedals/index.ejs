@@ -4,20 +4,25 @@
     <% include ../partials/head.ejs %>
 </head>
 <body>
-        <h1>User Pedal Board </h1>
-  
+        <h1>Plan Your Pedal Board </h1>
 <nav class="navbar navbar-dark bg-dark">
   <a href="/pedals/new"><button class= 'btn btn-primary'>Add a Pedal</button></a> <p>'  '</p> 
-  <a href="/pro_pedals/"><button class= 'btn btn-primary'>See Pro Pedal Boards</button></a>
-
+  <a href="/pro_pedals/"><button class= 'btn btn-primary'>See the Pro's Pedals </button></a> <p>'  '</p> 
+  <button class= 'btn btn-primary' onclick="myFunction()">More Info</button>
+  <script>
+                  function myFunction() {
+                    window.open("https://www.sweetwater.com/insync/boost-overdrive-distortion-and-fuzz-pedal-buying-guide/");
+                  }
+                  </script>
 </nav>
-        <div class= "pedalBoard">
+<h5>Every guitar player loves pedals. We all have at least a handful in our collection and will always try a new one we come across. Guitarists research effect pedals to create unique sounds. Plan out your pedal board below while you do your research to help get you started.</h5>
+<div class= "pedalBoard">
             
                 <% pedals.forEach((pedal, id) => { %>
                     <div class='card'>
-                    <h2> <a href="/pedals/<%=pedal._id%>"> <%= pedal.Name %> </a>  </h2>
-                    <h2> <%= pedal.Price %> </h2> 
-                    <h2>  <%= pedal.Analog %> </h2>
+                    <h2> Type: <a href="/pedals/<%=pedal._id%>"> <%= pedal.Name %> </a>  </h2>
+                    <h2> Price: <%= pedal.Price %> </h2> 
+                    <h2>  Analog: <%= pedal.Analog %> </h2>
                     <a href="/pedals/<%=id%>"> <%= pedals.Name %></a>
                     <form action="/pedals/<%=pedal._id %>?_method=DELETE" method="POST">
                       <button class="btn btn-danger"> Delete Pedal</button>
